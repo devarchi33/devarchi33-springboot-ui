@@ -1,0 +1,139 @@
+<html lang="ko" class="x-border-box x-strict"><!--<![endif]-->
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Login Form</title>
+    <link rel="stylesheet" href="/static/css/login.css"/>
+    <style>
+        .CodeMirror {
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+
+        /*.x-toolbar .x-btn{
+        border-color: #9d9d9d;
+        }*/
+        body,
+        html {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .loginIdDiv {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            text-align: center;
+            width: 230px;
+            height: 40px;
+            margin-left: 27px; /*half width*/
+            margin-top: -112px; /*half height*/
+        }
+
+        .loginPWDiv {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            text-align: center;
+            width: 230px;
+            height: 40px;
+            margin-left: 27px; /*half width*/
+            margin-top: -50px; /*half height*/
+        }
+
+        .submitDiv {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            text-align: center;
+            width: 230px;
+            height: 40px;
+            margin-left: 114px; /*half width*/
+            margin-top: 10px; /*half height*/
+        }
+
+        .rememberDiv {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            text-align: center;
+            padding: 10px;
+            margin-left: 25px; /*half width*/
+            margin-top: 10px; /*half height*/
+            background-color: #E8E8E8;
+        }
+
+        .btn {
+            background: #d93434;
+            background-image: -webkit-linear-gradient(top, #d93434, #ab0303);
+            background-image: -moz-linear-gradient(top, #d93434, #ab0303);
+            background-image: -ms-linear-gradient(top, #d93434, #ab0303);
+            background-image: -o-linear-gradient(top, #d93434, #ab0303);
+            background-image: linear-gradient(to bottom, #d93434, #ab0303);
+            -webkit-border-radius: 2;
+            -moz-border-radius: 2;
+            border-radius: 2px;
+            font-family: Arial;
+            color: #ffffff;
+            font-size: 12px;
+            padding: 14px 40px 14px 40px;
+            text-decoration: none;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        .btn:hover {
+            background: #d93434;
+            background-image: -webkit-linear-gradient(top, #d93434, #ab0303);
+            background-image: -moz-linear-gradient(top, #d93434, #ab0303);
+            background-image: -ms-linear-gradient(top, #d93434, #ab0303);
+            background-image: -o-linear-gradient(top, #d93434, #ab0303);
+            background-image: linear-gradient(to bottom, #d93434, #ab0303);
+            text-decoration: none;
+        }
+    </style>
+    <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+    .en-markup-crop-options {
+        top: 18px !important;
+        left: 50% !important;
+        margin-left: -100px !important;
+        width: 200px !important;
+        border: 2px rgba(255, 255, 255, .38) solid !important;
+        border-radius: 4px !important;
+    }
+
+    .en-markup-crop-options div div:first-of-type {
+        margin-left: 0px !important;
+    }
+    </style>
+</head>
+<body class="x-body x-webkit x-chrome x-mac" id="ext-gen1018" cz-shortcut-listen="true">
+<div style="background:url('/static/img/login_back.jpg') no-repeat;background-color:#878682;background-position: center; width:100%;height:100%">
+    <form name="frm-login" id="frm-login" method="get" action="/main">
+        <div class="loginIdDiv"><input type="text" name="login-id" id="login-id" value="" placeholder="ID"/></div>
+        <div class="loginPWDiv"><input type="password" name="login-pw" id="login-pw" value="" placeholder="Password"/>
+        </div>
+        <div class="submitDiv"><input type="submit" name="commit" value="Login" class="btn"/></div>
+        <div class="rememberDiv"><input type="checkbox" name="remember-me" id="remember-me" value="y"/> Remember me
+        </div>
+    </form>
+</div>
+<script>
+
+</script>
+
+<div class="k-left-panel-container">
+    <iframe src="chrome-extension://ljodbneopalmjfonmeojldpmnikphhdo/app/views/panel-app.html" scrolling="false"
+            name="panel-app"></iframe>
+</div>
+<div id="window-resizer-tooltip" style="display: none;"><a href="#" title="Edit settings"></a><span
+        class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1920</span> x <span
+        class="tooltipHeight" id="winHeight">1080</span><br/><span class="tooltipTitle">Viewport size: </span><span
+        class="tooltipWidth" id="vpWidth">1146</span> x <span class="tooltipHeight" id="vpHeight">985</span></div>
+
+<!--[if lt IE 9]>
+<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</body>
+</html>

@@ -1,0 +1,8 @@
+<a ui-sref="app.categories"><img src="../../static/angular-architecture-origin/assets/img/logo.png" alt="site-logo" class="logo"></a>
+<ul class="nav nav-bar">
+    <li ng-repeat="category in categoriesListCtrl.categories">
+        <a ui-sref="app.categories.bookmarks({category:category.name})">
+            {{category.name}}
+        </a>
+    </li>
+</ul>

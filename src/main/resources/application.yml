@@ -1,0 +1,13 @@
+servers:
+  mongo:
+    host: 127.0.0.1
+    port: 27017
+    database: devarchi33
+  elasticsearch:
+    host: 127.0.0.1
+    port: 9200
+server:
+  port: 8080
+spring:
+  thymeleaf:
+    cache: false #개발환경에서 서버 재가동 없이 static file 변경 적용. 운영에선 성능을 위해 true 로 설정.

@@ -1,0 +1,21 @@
+<h1>{{bookmarksListCtrl.getCurrentCategoryName()}}</h1>
+
+<div ng-repeat="bookmark in bookmarksListCtrl.bookmarks | filter : {category:bookmarksListCtrl.getCurrentCategoryName()}">
+    <button ng-click="bookmarksListCtrl.deleteBookmark(bookmark)" class="close">&times;</button>
+    <button class="btn btn-link"
+            ui-sref="app.categories.bookmarks.edit({bookmarkId:bookmark.id})">
+        <span class="glyphicon glyphicon-pencil"></span>
+    </button>
+    <a href="{{bookmark.url}}" target="_blank">
+        {{bookmark.title}}
+    </a>
+</div>
+<hr/>
+<!--Creating-->
+<ui-view ng-if="bookmarksListCtrl.getCurrentCategory()">
+    <button class="btn btn-link">
+        <span class="glyphicon glyphicon-plus"
+              ui-sref="app.categories.bookmarks.create"></span>
+        Create Bookmark
+    </button>
+</ui-view>
