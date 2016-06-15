@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body th:fragment="editForm">
+<div class="col-md-12 col-lg-12">
+    <section class="content-header">
+        <ol class="breadcrumb">
+            <li class=""><a th:href="@{/}" href="/"><i class="fa fa-dashboard"></i> 홈</a></li>
+            <li class="active"><a th:href="@{/}" href="/">수정</a></li>
+        </ol>
+    </section>
+    <br/><br/>
+    <section class="content">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Customer Edit Form</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                            class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <form class="form" th:action="@{/customers/edit}" th:object="${customerForm}" method="post">
+                    <dl>
+                        <dt>
+                            <label for="lastName" class="col-sm-2 control-label">성</label>
+                        </dt>
+                        <dd>
+                            <div class="form-group">
+                                <input class="form-control" type="text" id="lastName" name="lastName"
+                                       th:field="*{lastName}" th:errorclass="error-input" value="홍" placeholder="성"/>
+                                <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+                                      class="error-messages">error!</span>
+                            </div>
+                        </dd>
+                        <dt>
+                            <label for="firstName" class="col-sm-2 control-label">이름</label>
+                        </dt>
+                        <dd>
+                            <div class="form-group">
+                                <input class="form-control" type="text" id="firstName" name="firstName"
+                                       th:field="*{firstName}" th:errorclass="error-input" value="길동" placeholder="이름"/>
+                                <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
+                                      class="error-messages">error!</span>
+                            </div>
+                        </dd>
+                    </dl>
+                    <input name="goToTop" type="submit" value="돌아가기" class="btn btn-default"/>
+                    <input name="id" type="hidden" th:value="${param.id[0]}"/>
+                    <input type="submit" value="업데이트" class="btn btn-primary"/>
+                </form>
+            </div>
+            <!--.box-body-->
+        </div>
+        <!--.box-->
+    </section>
+    <!--.content-->
+</div>
+<!--.col-md-12-->
+</body>
+</html>

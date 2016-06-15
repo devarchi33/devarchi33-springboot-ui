@@ -37,6 +37,7 @@
 <div class="content-wrapper" th:switch="${page}">
     <div class="container" th:case="main" th:include="fragments/pages/main :: main"></div>
     <div class="container" th:case="customerList" th:include="fragments/pages/customerList :: customerList"></div>
+    <div class="container" th:case="editForm" th:include="fragments/pages/editForm :: editForm"></div>
 </div>
 
 <footer th:replace="fragments/commons/footer :: footer">&copy;</footer>

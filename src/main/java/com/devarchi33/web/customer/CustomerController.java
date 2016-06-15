@@ -14,6 +14,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -62,6 +63,45 @@ public class CustomerController {
         BeanUtils.copyProperties(form, customer);
         service.save(customer);
 
+        return REDIRECT + "customers";
+    }
+
+    @RequestMapping(value = "edit", method = RequestMethod.GET)
+    public String editForm(@RequestParam Integer id, CustomerForm customerForm, Model model) {
+        logger.info("customer 수정 폼..");
+
+        Customer customer = service.findOne(id);
+        BeanUtils.copyProperties(customerForm, customer);
+
+        model.addAttribute("page", "editForm");
+
+        return LAYOUT;
+    }
+
+    @RequestMapping(value = "edit", method = RequestMethod.POST)
+    public String edit(@RequestParam Integer id, @Validated CustomerForm customerForm, BindingResult result, Model model) {
+        logger.info("customer 수정..");
+
+        if (result.hasErrors()) {
+            return editForm(id, customerForm, model);
+        }
+
+        Customer customer = new Customer();
+        BeanUtils.copyProperties(customerForm, customer);
+        customer.setId(id);
+        service.save(customer);
+
+        return REDIRECT + "customers";
+    }
+
+    @RequestMapping(value = "edit", params = "goToTop")
+    public String goToTop() {
+        return REDIRECT + "customers";
+    }
+
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    public String delete(@RequestParam Integer id) {
+        service.delete(id);
         return REDIRECT + "customers";
     }
 }
