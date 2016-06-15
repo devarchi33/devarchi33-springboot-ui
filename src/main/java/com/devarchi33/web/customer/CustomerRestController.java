@@ -9,6 +9,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -38,7 +39,7 @@ public class CustomerRestController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer,
+    public ResponseEntity<Customer> createCustomer(@Validated @RequestBody Customer customer,
                                                    UriComponentsBuilder uriBuilder) {
         Customer created = service.save(customer);
         URI location = uriBuilder.path("api/customers/{id}")
@@ -51,7 +52,7 @@ public class CustomerRestController {
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.PUT)
-    public Customer updateCustomer(@PathVariable Integer id, @RequestBody Customer customer) {
+    public Customer updateCustomer(@PathVariable Integer id, @Validated @RequestBody Customer customer) {
         customer.setId(id);
         return service.save(customer);
     }
