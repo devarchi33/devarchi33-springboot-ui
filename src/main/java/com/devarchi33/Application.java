@@ -91,5 +91,6 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
         logger.info("Created: {}", created);
 
         customerService.findAll().forEach(System.out::println);
+        customerService.findAllOrderByName().forEach(System.out::println);
     }
 }

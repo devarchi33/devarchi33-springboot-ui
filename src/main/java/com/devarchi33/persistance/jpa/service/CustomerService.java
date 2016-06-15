@@ -24,6 +24,10 @@ public class CustomerService {
         return repository.findAll();
     }
 
+    public List<Customer> findAllOrderByName() {
+        return repository.findAllOrderByName();
+    }
+
     public Customer findOne(int id) {
         return repository.findOne(id);
     }
