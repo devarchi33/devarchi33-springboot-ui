@@ -23,7 +23,7 @@ public class AppsController {
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String login(Model model) {
-        logger.info("Jscan Login 화면..");
+        logger.info("Login 화면..");
 
         return "login";
     }
@@ -36,7 +36,7 @@ public class AppsController {
      */
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public String main(Model model) {
-        logger.info("Jscan main 화면..");
+        logger.info("main 화면..");
 
         model.addAttribute("page", "main");
 

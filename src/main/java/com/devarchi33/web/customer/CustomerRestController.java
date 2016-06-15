@@ -1,4 +1,4 @@
-package com.devarchi33.web;
+package com.devarchi33.web.customer;
 
 import com.devarchi33.domain.Customer;
 import com.devarchi33.persistance.jpa.service.CustomerService;
