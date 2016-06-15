@@ -9,5 +9,11 @@ servers:
 server:
   port: 8080
 spring:
+  datasource:
+    sql-script-encoding: UTF-8
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
   thymeleaf:
     cache: false #개발환경에서 서버 재가동 없이 static file 변경 적용. 운영에선 성능을 위해 true 로 설정.

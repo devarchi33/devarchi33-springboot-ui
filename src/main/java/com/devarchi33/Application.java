@@ -9,10 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Map;
 
 /**
@@ -27,6 +33,8 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
     private Properties props;
     @Autowired
     private CustomerService customerService;
+    @Autowired
+    private NamedParameterJdbcTemplate jdbcTemplate;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -57,6 +65,8 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
         logger.info("Mongo Database: {}", database);
 
         memorydbTest();
+        jdbcAccessTest();
+        jdbcObjectTest();
     }
 
     private void memorydbTest() {
@@ -65,5 +75,30 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
         customerService.save(new Customer(3, "Curry", "Stephan"));
 
         customerService.findAll().forEach(System.out::println);
+    }
+
+    private void jdbcAccessTest() {
+        String sql = "SELECT :a + :b";
+
+        SqlParameterSource param = new MapSqlParameterSource()
+                .addValue("a", 100)
+                .addValue("b", 200);
+
+        Integer result = jdbcTemplate.queryForObject(sql, param, Integer.class);
+
+        logger.info("result: {}", result);
+    }
+
+    private void jdbcObjectTest() {
+        String sql = "SELECT id, first_name, last_name FROM customers WHERE id = :id";
+
+        SqlParameterSource param = new MapSqlParameterSource()
+                .addValue("id", 1);
+
+        Customer result = jdbcTemplate.queryForObject(sql, param, (rs, i) -> {
+            return new Customer(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"));
+        });
+
+        logger.info("result: {}", result);
     }
 }
