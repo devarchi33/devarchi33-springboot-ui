@@ -99,13 +99,14 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
         Pageable pageable = new PageRequest(0, 2);
         Page<Customer> customerPage = customerService.findAll(pageable);
 
+        customerService.findAll().forEach(System.out::println);
+        customerService.findAllOrderByName(pageable).forEach(System.out::println);
+
         logger.info("한 페이지당 데이터 수: {}", customerPage.getSize());
         logger.info("현재 페이지 : {}", customerPage.getNumber());
         logger.info("전체 페이지 수 : {}", customerPage.getTotalPages());
         logger.info("전체 데이터 수 : {}", customerPage.getTotalElements());
 
-        customerService.findAll().forEach(System.out::println);
-        customerService.findAllOrderByName(pageable).forEach(System.out::println);
         customerPage.getContent().forEach(System.out::println);
     }
 }

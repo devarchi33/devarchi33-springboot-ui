@@ -5,14 +5,15 @@ import com.devarchi33.persistance.jpa.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
  * Created by donghoon on 2016. 6. 15..
  */
+@Transactional
 @Service
 public class CustomerService {
 
