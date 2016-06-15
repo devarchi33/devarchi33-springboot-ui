@@ -87,15 +87,9 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
     }
 
     private void jdbcObjectTest() {
-        String sql = "SELECT id, first_name, last_name FROM customers WHERE id = :id";
+        Customer created = customerService.save(new Customer(null, "Jungho", "Kang"));
+        logger.info("Created: {}", created);
 
-        SqlParameterSource param = new MapSqlParameterSource()
-                .addValue("id", 1);
-
-        Customer result = jdbcTemplate.queryForObject(sql, param, (rs, i) -> {
-            return new Customer(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"));
-        });
-
-        logger.info("result: {}", result);
+        customerService.findAll().forEach(System.out::println);
     }
 }

@@ -24,4 +24,12 @@ public class CustomerService {
         return repository.findAll();
     }
 
+    public Customer findOne(int id) {
+        return repository.findOne(id);
+    }
+
+    public void delete(int id) {
+        repository.delete(id);
+    }
+
 }
