@@ -63,13 +63,13 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
 
         memorydbTest();
         jdbcAccessTest();
-        jdbcObjectTest();
+        jpaTest();
     }
 
     private void memorydbTest() {
-        customerService.save(new Customer(1, "James", "Lebron"));
-        customerService.save(new Customer(2, "Irving", "Kyrie"));
-        customerService.save(new Customer(3, "Curry", "Stephan"));
+        customerService.save(new Customer(1, "Messy", "Lionel"));
+        customerService.save(new Customer(2, "Sualez", "Louis"));
+        customerService.save(new Customer(3, "Neimar", "Dacilva"));
 
         customerService.findAll().forEach(System.out::println);
     }
@@ -86,7 +86,7 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
         logger.info("result: {}", result);
     }
 
-    private void jdbcObjectTest() {
+    private void jpaTest() {
         Customer created = customerService.save(new Customer(null, "Jungho", "Kang"));
         logger.info("Created: {}", created);
 
