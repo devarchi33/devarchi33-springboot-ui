@@ -1,6 +1,8 @@
 package com.devarchi33;
 
 import com.devarchi33.config.Properties;
+import com.devarchi33.domain.Customer;
+import com.devarchi33.persistance.jpa.service.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,8 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
 
     @Autowired
     private Properties props;
+    @Autowired
+    private CustomerService customerService;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -51,5 +55,15 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
         logger.info("Mongo Host: {}", host);
         logger.info("Mongo Port: {}", port);
         logger.info("Mongo Database: {}", database);
+
+        memorydbTest();
+    }
+
+    private void memorydbTest() {
+        customerService.save(new Customer(1, "James", "Lebron"));
+        customerService.save(new Customer(2, "Irving", "Kyrie"));
+        customerService.save(new Customer(3, "Curry", "Stephan"));
+
+        customerService.findAll().forEach(System.out::println);
     }
 }

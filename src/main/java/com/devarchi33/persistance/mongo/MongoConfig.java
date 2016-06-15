@@ -1,4 +1,4 @@
-package com.devarchi33.persistance;
+package com.devarchi33.persistance.mongo;
 
 import com.devarchi33.config.Properties;
 import com.mongodb.Mongo;
