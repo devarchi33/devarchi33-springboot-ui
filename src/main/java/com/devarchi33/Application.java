@@ -64,9 +64,9 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
         logger.info("Mongo Port: {}", port);
         logger.info("Mongo Database: {}", database);
 
-        memorydbTest();
-        jdbcAccessTest();
-        jpaTest();
+//        memorydbTest();
+//        jdbcAccessTest();
+//        jpaTest();
     }
 
     private void memorydbTest() {
