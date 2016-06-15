@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -90,7 +93,19 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
         Customer created = customerService.save(new Customer(null, "Jungho", "Kang"));
         logger.info("Created: {}", created);
 
+        /**
+         * PageRequest args(페이지 수, 페이지당 데이터 수)
+         */
+        Pageable pageable = new PageRequest(0, 2);
+        Page<Customer> customerPage = customerService.findAll(pageable);
+
+        logger.info("한 페이지당 데이터 수: {}", customerPage.getSize());
+        logger.info("현재 페이지 : {}", customerPage.getNumber());
+        logger.info("전체 페이지 수 : {}", customerPage.getTotalPages());
+        logger.info("전체 데이터 수 : {}", customerPage.getTotalElements());
+
         customerService.findAll().forEach(System.out::println);
-        customerService.findAllOrderByName().forEach(System.out::println);
+        customerService.findAllOrderByName(pageable).forEach(System.out::println);
+        customerPage.getContent().forEach(System.out::println);
     }
 }
