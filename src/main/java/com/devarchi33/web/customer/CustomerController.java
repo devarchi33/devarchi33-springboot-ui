@@ -105,6 +105,8 @@ public class CustomerController {
 
     @RequestMapping(value = "delete", method = RequestMethod.POST)
     public String delete(@RequestParam Integer id) {
+        logger.info("customer 삭제..");
+
         service.delete(id);
         return REDIRECT + "customers";
     }
