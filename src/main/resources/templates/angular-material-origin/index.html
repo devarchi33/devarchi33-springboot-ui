@@ -11,6 +11,7 @@
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'/>
     <link rel="stylesheet" href="../../static/node_modules/angular-material/angular-material.css"/>
     <link rel="stylesheet" href="../../static/angular-material-origin/assets/css/app.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 
     <style type="text/css">
         /**
@@ -55,6 +56,9 @@
                    aria-label="Share with {{ ul.selected.name }}">
             <md-icon md-svg-icon="share"></md-icon>
         </md-button>
+        <md-button class="home" md-no-ink="" ng-click="ul.goHome()">
+            <md-icon md-svg-icon="home"></md-icon>
+        </md-button>
     </md-content>
 
 </div>
@@ -85,6 +89,7 @@
                         .defaultIconSet("../../static/angular-material-origin/assets/svg/avatars.svg", 128)
                         .icon("menu", "../../static/angular-material-origin/assets/svg/menu.svg", 24)
                         .icon("share", "../../static/angular-material-origin/assets/svg/share.svg", 24)
+                        .icon("home", "../../static/node_modules/material-design-icons/action/svg/production/ic_home_24px.svg", 24)
                         .icon("google_plus", "../../static/angular-material-origin/assets/svg/google_plus.svg", 512)
                         .icon("hangouts", "../../static/angular-material-origin/assets/svg/hangouts.svg", 512)
                         .icon("twitter", "../../static/angular-material-origin/assets/svg/twitter.svg", 512)

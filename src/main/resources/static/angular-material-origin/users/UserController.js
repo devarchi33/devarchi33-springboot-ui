@@ -22,6 +22,7 @@
         self.selectUser = selectUser;
         self.toggleList = toggleUsersList;
         self.makeContact = makeContact;
+        self.goHome = goHome;
 
         // Load all registered users
 
@@ -35,6 +36,13 @@
         // *********************************
         // Internal methods
         // *********************************
+
+        /**
+         * go home
+         */
+        function goHome() {
+            location.href = "/";
+        }
 
         /**
          * Hide or Show the 'left' sideNav area

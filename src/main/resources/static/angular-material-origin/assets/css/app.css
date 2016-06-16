@@ -56,6 +56,17 @@ md-sidenav md-list {
     margin: 8px auto 16px 0;
     position: absolute;
     top: 10px;
+    right: 80px;
+}
+
+#content .md-button.home {
+    background-color: transparent;
+    border: none;
+    width: 48px;
+    height: 48px;
+    margin: 8px auto 16px 0;
+    position: absolute;
+    top: 10px;
     right: 25px;
 }
 
