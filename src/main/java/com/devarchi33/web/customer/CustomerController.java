@@ -2,7 +2,7 @@ package com.devarchi33.web.customer;
 
 import com.devarchi33.domain.Customer;
 import com.devarchi33.domain.dto.CustomerForm;
-import com.devarchi33.persistance.jpa.service.CustomerService;
+import com.devarchi33.service.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;

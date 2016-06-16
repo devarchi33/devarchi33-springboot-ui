@@ -1,7 +1,7 @@
 package com.devarchi33.web.customer;
 
 import com.devarchi33.domain.Customer;
-import com.devarchi33.persistance.jpa.service.CustomerService;
+import com.devarchi33.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.util.List;
 
 /**
  * Created by donghoon on 2016. 6. 15..

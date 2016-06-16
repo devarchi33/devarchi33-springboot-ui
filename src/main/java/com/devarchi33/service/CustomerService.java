@@ -1,4 +1,4 @@
-package com.devarchi33.persistance.jpa.service;
+package com.devarchi33.service;
 
 import com.devarchi33.domain.Customer;
 import com.devarchi33.persistance.jpa.repository.CustomerRepository;
