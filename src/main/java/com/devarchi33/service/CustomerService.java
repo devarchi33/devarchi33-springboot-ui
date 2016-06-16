@@ -1,6 +1,7 @@
 package com.devarchi33.service;
 
 import com.devarchi33.domain.Customer;
+import com.devarchi33.domain.User;
 import com.devarchi33.persistance.jpa.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,12 +21,13 @@ public class CustomerService {
     @Autowired
     private CustomerRepository repository;
 
-    public Customer save(Customer customer) {
+    public Customer save(Customer customer, User user) {
+        customer.setUser(user);
         return repository.save(customer);
     }
 
     public List<Customer> findAll() {
-        return repository.findAll();
+        return repository.findAllOrderByName();
     }
 
     public Page<Customer> findAll(Pageable pageable) {
@@ -33,7 +35,7 @@ public class CustomerService {
     }
 
     public Page<Customer> findAllOrderByName(Pageable pageable) {
-        return repository.findAllOrderByName(pageable);
+        return repository.findAllOrderByNamePageable(pageable);
     }
 
     public Customer findOne(int id) {

@@ -1,8 +1,10 @@
-<html lang="ko" class="x-border-box x-strict"><!--<![endif]-->
+<html lang="ko" class="x-border-box x-strict" xmlns:th="http://www.thymeleaf.org"><!--<![endif]-->
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>Login Form</title>
+    <link th:href="@{/static/node_modules/admin-lte/bootstrap/css/bootstrap.min.css}"
+          href="/static/node_modules/admin-lte/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/static/css/login.css"/>
     <style>
         .CodeMirror {
@@ -111,9 +113,18 @@
 </head>
 <body class="x-body x-webkit x-chrome x-mac" id="ext-gen1018" cz-shortcut-listen="true">
 <div style="background:url('/static/img/login_back.jpg') no-repeat;background-color:#878682;background-position: center; width:100%;height:100%">
-    <form name="frm-login" id="frm-login" method="get" action="/main">
-        <div class="loginIdDiv"><input type="text" name="login-id" id="login-id" value="" placeholder="ID"/></div>
-        <div class="loginPWDiv"><input type="password" name="login-pw" id="login-pw" value="" placeholder="Password"/>
+    <form name="frm-login" class="form-signin" id="frm-login" method="post" th:action="@{/login}">
+
+        <div class="alert alert-danger" th:if="${param.error}">
+            잘못된 아이디나 암호 입니다.
+        </div>
+
+        <div class="loginIdDiv">
+            <input type="text" name="username" id="login-id" placeholder="Username" required="required"
+                   autofocus="autofocus"/>
+        </div>
+        <div class="loginPWDiv">
+            <input type="password" name="password" id="login-pw" value="" placeholder="Password" required="required"/>
         </div>
         <div class="submitDiv"><input type="submit" name="commit" value="Login" class="btn"/></div>
         <div class="rememberDiv"><input type="checkbox" name="remember-me" id="remember-me" value="y"/> Remember me
@@ -133,6 +144,11 @@
         class="tooltipHeight" id="winHeight">1080</span><br/><span class="tooltipTitle">Viewport size: </span><span
         class="tooltipWidth" id="vpWidth">1146</span> x <span class="tooltipHeight" id="vpHeight">985</span></div>
 
+
+<script th:src="@{/static/node_modules/admin-lte/plugins/jQuery/jQuery-2.2.0.min.js}"
+        src="/static/node_modules/admin-lte/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<script th:src="@{/static/node_modules/admin-lte/bootstrap/js/bootstrap.min.js}"
+        src="/static/node_modules/admin-lte/bootstrap/js/bootstrap.min.js"></script>
 <!--[if lt IE 9]>
 <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </body>

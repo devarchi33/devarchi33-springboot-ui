@@ -54,15 +54,17 @@
                 <table class="table table-striped table-bordered table-condensed">
                     <tr>
                         <th>Id</th>
-                        <th>Last Name</th>
-                        <th>First Name</th>
-                        <th>Modify</th>
-                        <th>Delete</th>
+                        <th>성</th>
+                        <th>이름</th>
+                        <th>담당자</th>
+                        <th>편집</th>
+                        <th>삭제</th>
                     </tr>
                     <tr th:each="customer : ${customers}">
                         <td th:text="${customer.id}"></td>
                         <td th:text="${customer.lastName}"></td>
                         <td th:text="${customer.firstName}"></td>
+                        <td th:text="${customer.user.username}"></td>
                         <td>
                             <form th:action="@{/customers/edit}" method="get">
                                 <input class="btn btn-info full-width" type="submit" name="form" value="편집"/>

@@ -2,6 +2,7 @@ package com.devarchi33;
 
 import com.devarchi33.config.Properties;
 import com.devarchi33.domain.Customer;
+import com.devarchi33.domain.User;
 import com.devarchi33.service.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -70,9 +71,10 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
     }
 
     private void memorydbTest() {
-        customerService.save(new Customer(1, "Messy", "Lionel"));
-        customerService.save(new Customer(2, "Sualez", "Louis"));
-        customerService.save(new Customer(3, "Neimar", "Dacilva"));
+        User user = new User();
+        customerService.save(new Customer(1, "Messy", "Lionel", user), user);
+        customerService.save(new Customer(2, "Sualez", "Louis", user), user);
+        customerService.save(new Customer(3, "Neimar", "Dacilva", user), user);
 
         customerService.findAll().forEach(System.out::println);
     }
@@ -90,7 +92,8 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
     }
 
     private void jpaTest() {
-        Customer created = customerService.save(new Customer(null, "Jungho", "Kang"));
+        User user = new User();
+        Customer created = customerService.save(new Customer(null, "Jungho", "Kang", user), user);
         logger.info("Created: {}", created);
 
         /**

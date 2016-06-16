@@ -16,25 +16,12 @@ public class AppsController {
     private final String LAYOUT = "layout";
 
     /**
-     * Login 화면.
-     *
-     * @param model
-     * @return
-     */
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String login(Model model) {
-        logger.info("Login 화면..");
-
-        return "login";
-    }
-
-    /**
      * main 화면.
      *
      * @param model
      * @return
      */
-    @RequestMapping(value = "/main", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String main(Model model) {
         logger.info("main 화면..");
 

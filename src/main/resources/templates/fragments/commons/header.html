@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 </head>
 <body>
@@ -30,7 +31,10 @@
             <!--</ul>-->
             <!--</div>-->
             <div class="nav navbar-right">
-                <p class="navbar-text" th:style="'color : white'">Devarchi33.</p>
+                <p class="navbar-text" th:style="'color : white'">
+                    <span sec:authentication="principal.user.username"></span> 님이 로그인한 상태.
+                    <a th:href="@{/logout}" class="btn btn-default btn-xs">로그아웃</a>
+                </p>
             </div>
         </div>
     </nav>

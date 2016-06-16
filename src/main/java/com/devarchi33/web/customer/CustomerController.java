@@ -3,10 +3,12 @@ package com.devarchi33.web.customer;
 import com.devarchi33.domain.Customer;
 import com.devarchi33.domain.dto.CustomerForm;
 import com.devarchi33.service.CustomerService;
+import com.devarchi33.service.LoginUserDetails;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -52,7 +54,8 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "create", method = RequestMethod.POST)
-    public String create(@Validated CustomerForm form, BindingResult result, Model model) {
+    public String create(@Validated CustomerForm form, BindingResult result, Model model,
+                         @AuthenticationPrincipal LoginUserDetails loginUserDetails) {
         logger.info("customer 생성..");
 
         if (result.hasErrors()) {
@@ -61,7 +64,7 @@ public class CustomerController {
 
         Customer customer = new Customer();
         BeanUtils.copyProperties(form, customer);
-        service.save(customer);
+        service.save(customer, loginUserDetails.getUser());
 
         return REDIRECT + "customers";
     }
@@ -79,7 +82,8 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "edit", method = RequestMethod.POST)
-    public String edit(@RequestParam Integer id, @Validated CustomerForm customerForm, BindingResult result, Model model) {
+    public String edit(@RequestParam Integer id, @Validated CustomerForm customerForm, BindingResult result, Model model,
+                       @AuthenticationPrincipal LoginUserDetails loginUserDetails) {
         logger.info("customer 수정..");
 
         if (result.hasErrors()) {
@@ -89,7 +93,7 @@ public class CustomerController {
         Customer customer = new Customer();
         BeanUtils.copyProperties(customerForm, customer);
         customer.setId(id);
-        service.save(customer);
+        service.save(customer, loginUserDetails.getUser());
 
         return REDIRECT + "customers";
     }

@@ -14,7 +14,7 @@ public class AppConfig {
 
     @Order(Ordered.HIGHEST_PRECEDENCE)
     @Bean
-    public CharacterEncodingFilter characterEncodingFilter() {
+    public CharacterEncodingFilter devarchi33CharacterEncodingFilter() {
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
         filter.setEncoding("UTF-8");
         filter.setForceEncoding(true);

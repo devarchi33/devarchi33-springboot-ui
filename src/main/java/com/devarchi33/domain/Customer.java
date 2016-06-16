@@ -30,4 +30,8 @@ public class Customer {
     @Column(nullable = false)
     private String lastName;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = true, name = "username")
+    private User user;
+
 }
