@@ -61,7 +61,7 @@
             left: 50%;
             top: 50%;
             text-align: center;
-            padding: 10px;
+            padding: 20px;
             margin-left: 25px; /*half width*/
             margin-top: 10px; /*half height*/
             background-color: #E8E8E8;
@@ -111,7 +111,9 @@
     }
     </style>
 </head>
+
 <body class="x-body x-webkit x-chrome x-mac" id="ext-gen1018" cz-shortcut-listen="true">
+
 <div style="background:url('/static/img/login_back.jpg') no-repeat;background-color:#878682;background-position: center; width:100%;height:100%">
     <form name="frm-login" class="form-signin" id="frm-login" method="post" th:action="@{/login}">
 
@@ -131,19 +133,6 @@
         </div>
     </form>
 </div>
-<script>
-
-</script>
-
-<div class="k-left-panel-container">
-    <iframe src="chrome-extension://ljodbneopalmjfonmeojldpmnikphhdo/app/views/panel-app.html" scrolling="false"
-            name="panel-app"></iframe>
-</div>
-<div id="window-resizer-tooltip" style="display: none;"><a href="#" title="Edit settings"></a><span
-        class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1920</span> x <span
-        class="tooltipHeight" id="winHeight">1080</span><br/><span class="tooltipTitle">Viewport size: </span><span
-        class="tooltipWidth" id="vpWidth">1146</span> x <span class="tooltipHeight" id="vpHeight">985</span></div>
-
 
 <script th:src="@{/static/node_modules/admin-lte/plugins/jQuery/jQuery-2.2.0.min.js}"
         src="/static/node_modules/admin-lte/plugins/jQuery/jQuery-2.2.0.min.js"></script>
@@ -151,5 +140,6 @@
         src="/static/node_modules/admin-lte/bootstrap/js/bootstrap.min.js"></script>
 <!--[if lt IE 9]>
 <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
 </body>
 </html>
