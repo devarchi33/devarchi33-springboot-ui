@@ -1,4 +1,4 @@
-package com.devarchi33.service.jpa;
+package com.devarchi33.service.login;
 
 import com.devarchi33.domain.jpa.User;
 import com.devarchi33.persistance.jpa.repository.UserRepository;

@@ -1,4 +1,4 @@
-package com.devarchi33.service.jpa;
+package com.devarchi33.service.login;
 
 import lombok.Data;
 import org.springframework.security.core.authority.AuthorityUtils;
