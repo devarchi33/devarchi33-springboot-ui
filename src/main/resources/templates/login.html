@@ -1,145 +1,57 @@
-<html lang="ko" class="x-border-box x-strict" xmlns:th="http://www.thymeleaf.org"><!--<![endif]-->
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Login Form</title>
-    <link th:href="@{/static/node_modules/admin-lte/bootstrap/css/bootstrap.min.css}"
-          href="/static/node_modules/admin-lte/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="/static/css/login.css"/>
-    <style>
-        .CodeMirror {
-            border-top: 1px solid black;
-            border-bottom: 1px solid black;
-        }
-
-        /*.x-toolbar .x-btn{
-        border-color: #9d9d9d;
-        }*/
-        body,
-        html {
-            margin: 0px;
-            padding: 0px;
-            width: 100%;
-            height: 100%;
-        }
-
-        .loginIdDiv {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            text-align: center;
-            width: 230px;
-            height: 40px;
-            margin-left: 27px; /*half width*/
-            margin-top: -112px; /*half height*/
-        }
-
-        .loginPWDiv {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            text-align: center;
-            width: 230px;
-            height: 40px;
-            margin-left: 27px; /*half width*/
-            margin-top: -50px; /*half height*/
-        }
-
-        .submitDiv {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            text-align: center;
-            width: 230px;
-            height: 40px;
-            margin-left: 114px; /*half width*/
-            margin-top: 10px; /*half height*/
-        }
-
-        .rememberDiv {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            text-align: center;
-            padding: 20px;
-            margin-left: 25px; /*half width*/
-            margin-top: 10px; /*half height*/
-            background-color: #E8E8E8;
-        }
-
-        .btn {
-            background: #d93434;
-            background-image: -webkit-linear-gradient(top, #d93434, #ab0303);
-            background-image: -moz-linear-gradient(top, #d93434, #ab0303);
-            background-image: -ms-linear-gradient(top, #d93434, #ab0303);
-            background-image: -o-linear-gradient(top, #d93434, #ab0303);
-            background-image: linear-gradient(to bottom, #d93434, #ab0303);
-            -webkit-border-radius: 2;
-            -moz-border-radius: 2;
-            border-radius: 2px;
-            font-family: Arial;
-            color: #ffffff;
-            font-size: 12px;
-            padding: 14px 40px 14px 40px;
-            text-decoration: none;
-            border: none !important;
-            box-shadow: none !important;
-        }
-
-        .btn:hover {
-            background: #d93434;
-            background-image: -webkit-linear-gradient(top, #d93434, #ab0303);
-            background-image: -moz-linear-gradient(top, #d93434, #ab0303);
-            background-image: -ms-linear-gradient(top, #d93434, #ab0303);
-            background-image: -o-linear-gradient(top, #d93434, #ab0303);
-            background-image: linear-gradient(to bottom, #d93434, #ab0303);
-            text-decoration: none;
-        }
-    </style>
-    <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
-    .en-markup-crop-options {
-        top: 18px !important;
-        left: 50% !important;
-        margin-left: -100px !important;
-        width: 200px !important;
-        border: 2px rgba(255, 255, 255, .38) solid !important;
-        border-radius: 4px !important;
-    }
-
-    .en-markup-crop-options div div:first-of-type {
-        margin-left: 0px !important;
-    }
-    </style>
+    <meta charset="UTF-8"/>
+    <title>Devarchi33 Portfolio login form</title>
+    <link rel="stylesheet" th:href="@{../static/css/login.css}" href="../static/css/login.css"/>
 </head>
 
-<body class="x-body x-webkit x-chrome x-mac" id="ext-gen1018" cz-shortcut-listen="true">
+<body>
 
-<div style="background:url('/static/img/login_back.jpg') no-repeat;background-color:#878682;background-position: center; width:100%;height:100%">
-    <form name="frm-login" class="form-signin" id="frm-login" method="post" th:action="@{/login}">
-
-        <div class="alert alert-danger" th:if="${param.error}">
-            잘못된 아이디나 암호 입니다.
-        </div>
-
-        <div class="loginIdDiv">
-            <input type="text" name="username" id="login-id" placeholder="Username" required="required"
-                   autofocus="autofocus"/>
-        </div>
-        <div class="loginPWDiv">
-            <input type="password" name="password" id="login-pw" value="" placeholder="Password" required="required"/>
-        </div>
-        <div class="submitDiv"><input type="submit" name="commit" value="Login" class="btn"/></div>
-        <div class="rememberDiv"><input type="checkbox" name="remember-me" id="remember-me" value="y"/> Remember me
-        </div>
-    </form>
+<div id="clouds">
+    <div class="cloud x1"></div>
+    <!-- Time for multiple clouds to dance around -->
+    <div class="cloud x2"></div>
+    <div class="cloud x3"></div>
+    <div class="cloud x4"></div>
+    <div class="cloud x5"></div>
 </div>
 
-<script th:src="@{/static/node_modules/admin-lte/plugins/jQuery/jQuery-2.2.0.min.js}"
-        src="/static/node_modules/admin-lte/plugins/jQuery/jQuery-2.2.0.min.js"></script>
-<script th:src="@{/static/node_modules/admin-lte/bootstrap/js/bootstrap.min.js}"
-        src="/static/node_modules/admin-lte/bootstrap/js/bootstrap.min.js"></script>
-<!--[if lt IE 9]>
-<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<div class="container">
+
+
+    <div id="login">
+
+        <form method="post" th:action="@{/login}">
+
+            <div class="alert alert-danger" th:if="${param.error}">
+                잘못된 아이디나 암호 입니다.
+            </div>
+
+            <fieldset class="clearfix">
+
+                <p>
+                    <span class="fontawesome-user"></span>
+                    <input type="text" value="Username" onBlur="if(this.value == '') this.value = 'Username'"
+                           name="username" onFocus="if(this.value == 'Username') this.value = ''" required=""/>
+                </p>
+                <!-- JS because of IE support; better: placeholder="Username" -->
+                <p>
+                    <span class="fontawesome-lock"></span>
+                    <input type="password" value="Password" onBlur="if(this.value == '') this.value = 'Password'"
+                           name="password" onFocus="if(this.value == 'Password') this.value = ''" required=""/>
+                </p>
+                <!-- JS because of IE support; better: placeholder="Password" -->
+                <p><input type="submit" value="Sign In"/></p>
+
+            </fieldset>
+
+        </form>
+
+        <p>Not a member? <a href="#" class="blue">Sign up now</a><span class="fontawesome-arrow-right"></span></p>
+
+    </div> <!-- end login -->
+
+</div>
 
 </body>
 </html>
