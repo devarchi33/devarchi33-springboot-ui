@@ -1,6 +1,6 @@
 package com.devarchi33.persistance.jpa.repository;
 
-import com.devarchi33.domain.User;
+import com.devarchi33.domain.jpa.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

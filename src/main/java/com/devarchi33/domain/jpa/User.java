@@ -1,4 +1,4 @@
-package com.devarchi33.domain;
+package com.devarchi33.domain.jpa;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;

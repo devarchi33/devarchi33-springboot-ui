@@ -1,7 +1,7 @@
-package com.devarchi33.service;
+package com.devarchi33.service.jpa;
 
-import com.devarchi33.domain.Customer;
-import com.devarchi33.domain.User;
+import com.devarchi33.domain.jpa.Customer;
+import com.devarchi33.domain.jpa.User;
 import com.devarchi33.persistance.jpa.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

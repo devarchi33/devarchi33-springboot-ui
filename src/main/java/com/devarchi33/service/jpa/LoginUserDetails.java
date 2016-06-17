@@ -1,8 +1,8 @@
-package com.devarchi33.service;
+package com.devarchi33.service.jpa;
 
 import lombok.Data;
 import org.springframework.security.core.authority.AuthorityUtils;
-import com.devarchi33.domain.User;
+import com.devarchi33.domain.jpa.User;
 
 /**
  * Created by donghoon on 2016. 6. 16..

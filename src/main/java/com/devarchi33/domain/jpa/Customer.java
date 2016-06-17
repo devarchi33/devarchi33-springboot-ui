@@ -1,4 +1,4 @@
-package com.devarchi33.domain;
+package com.devarchi33.domain.jpa;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

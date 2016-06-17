@@ -1,6 +1,6 @@
 package com.devarchi33.persistance.jpa.repository;
 
-import com.devarchi33.domain.Customer;
+import com.devarchi33.domain.jpa.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

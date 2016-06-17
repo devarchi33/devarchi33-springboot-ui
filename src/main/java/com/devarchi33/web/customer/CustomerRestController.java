@@ -1,8 +1,8 @@
 package com.devarchi33.web.customer;
 
-import com.devarchi33.domain.Customer;
-import com.devarchi33.service.CustomerService;
-import com.devarchi33.service.LoginUserDetails;
+import com.devarchi33.domain.jpa.Customer;
+import com.devarchi33.service.jpa.CustomerService;
+import com.devarchi33.service.jpa.LoginUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

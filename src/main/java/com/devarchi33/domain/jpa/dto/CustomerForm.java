@@ -1,4 +1,4 @@
-package com.devarchi33.domain.dto;
+package com.devarchi33.domain.jpa.dto;
 
 import lombok.Data;
 

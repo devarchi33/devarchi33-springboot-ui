@@ -1,9 +1,12 @@
 package com.devarchi33;
 
 import com.devarchi33.config.Properties;
-import com.devarchi33.domain.Customer;
-import com.devarchi33.domain.User;
-import com.devarchi33.service.CustomerService;
+import com.devarchi33.domain.elastic.Post;
+import com.devarchi33.domain.elastic.Tag;
+import com.devarchi33.domain.jpa.Customer;
+import com.devarchi33.domain.jpa.User;
+import com.devarchi33.service.elastic.PostService;
+import com.devarchi33.service.jpa.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -36,6 +41,8 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
     private CustomerService customerService;
     @Autowired
     private NamedParameterJdbcTemplate jdbcTemplate;
+    @Autowired
+    private PostService postService;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -57,17 +64,52 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
     public void run(String... strings) throws Exception {
         Map<String, Map<String, String>> servers = props.getServers();
         Map<String, String> mongoInfo = servers.get("mongo");
-        String host = mongoInfo.get("host");
-        int port = Integer.parseInt(mongoInfo.get("port"));
+        Map<String, String> elasticInfo = servers.get("elasticsearch");
+        String mongoHost = mongoInfo.get("host");
+        int mongoPort = Integer.parseInt(mongoInfo.get("port"));
+        String elasticHost = elasticInfo.get("host");
+        int elasticPort = Integer.parseInt(elasticInfo.get("port"));
         String database = mongoInfo.get("database");
 
-        logger.info("Mongo Host: {}", host);
-        logger.info("Mongo Port: {}", port);
+        logger.info("Mongo Host: {}", mongoHost);
+        logger.info("Mongo Port: {}", mongoPort);
         logger.info("Mongo Database: {}", database);
+        logger.info("Elastic Host: {}", elasticHost);
+        logger.info("Elastic Port: {}", elasticPort);
 
 //        memorydbTest();
 //        jdbcAccessTest();
 //        jpaTest();
+
+        elasticTest();
+    }
+
+    private void elasticTest() {
+        Tag tag = new Tag();
+        tag.setId("1");
+        tag.setName("제임스");
+        Tag tag2 = new Tag();
+        tag2.setId("2");
+        tag2.setName("어빙");
+
+        Post post = new Post();
+        post.setId("1");
+        post.setTitle("Bigining with spring boot application and elasticsearch.");
+        post.setTags(Arrays.asList(tag, tag2));
+        postService.save(post);
+
+        Post post2 = new Post();
+        post2.setId("2");
+        post2.setTitle("Bigining with spring boot application");
+        post2.setTags(Arrays.asList(tag));
+        postService.save(post2);
+
+        Iterable<Post> postList = postService.findAll();
+        Iterable<Post> postList2 = postService.findByTagsName("제임스", new PageRequest(0, 10));
+
+        postList.forEach(System.out::println);
+        postList2.forEach(System.out::println);
+
     }
 
     private void memorydbTest() {

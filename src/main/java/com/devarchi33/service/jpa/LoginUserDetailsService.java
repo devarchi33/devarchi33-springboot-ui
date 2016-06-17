@@ -1,6 +1,6 @@
-package com.devarchi33.service;
+package com.devarchi33.service.jpa;
 
-import com.devarchi33.domain.User;
+import com.devarchi33.domain.jpa.User;
 import com.devarchi33.persistance.jpa.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
