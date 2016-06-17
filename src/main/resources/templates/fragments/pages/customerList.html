@@ -72,9 +72,14 @@
                             </form>
                         </td>
                         <td>
-                            <input id="deleteCustomerBtn" class="btn btn-danger full-width" type="submit" value="삭제"/>
-                            <input type="hidden" id="deleteId" th:name="${id}" th:value="${customer.id}"/>
-                            <input type="hidden" id="token" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                            <form th:action="@{/customers/delete}" method="post"
+                                  onsubmit="return confirm('Are you really want to delete this row?')">
+                                <input id="deleteCustomerBtn" class="btn btn-danger full-width" type="submit"
+                                       value="삭제"/>
+                                <input type="hidden" name="id" th:value="${customer.id}"/>
+                                <input type="hidden" id="token" th:name="${_csrf.parameterName}"
+                                       th:value="${_csrf.token}"/>
+                            </form>
                         </td>
                     </tr>
                 </table>

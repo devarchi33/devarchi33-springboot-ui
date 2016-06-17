@@ -4,30 +4,6 @@
 $(document).ready(function () {
     'use strict';
 
-    var deleteBtn = $("#deleteCustomerBtn");
-
-
-    /**
-     * customer delete event.
-     */
-    deleteBtn.on("click", function () {
-
-        var checked = confirm("Are you really delete this customer?");
-
-        if (checked) {
-            var id = $("#deleteId").val();
-            var token = $("#token").val();
-            var deleteCustomerForm = makeForm("post", "/customers/delete");
-            var deleteCustomerInput = makeInput("id", id);
-            var csrfInput = makeInput("_csrf", token);
-
-            deleteCustomerForm.appendChild(deleteCustomerInput);
-            deleteCustomerForm.appendChild(csrfInput);
-            deleteCustomerForm.submit();
-        }
-    });
-
-
     function makeInput(name, value) {
         var objs = document.createElement('input');
         objs.setAttribute('type', 'hidden');
