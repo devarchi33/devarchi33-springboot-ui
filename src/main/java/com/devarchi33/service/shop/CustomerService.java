@@ -1,4 +1,4 @@
-package com.devarchi33.service.jpa;
+package com.devarchi33.service.shop;
 
 import com.devarchi33.domain.jpa.Customer;
 import com.devarchi33.domain.jpa.User;

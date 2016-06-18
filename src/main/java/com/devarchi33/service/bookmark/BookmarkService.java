@@ -1,4 +1,4 @@
-package com.devarchi33.service.mongo;
+package com.devarchi33.service.bookmark;
 
 import com.devarchi33.domain.mongo.Bookmark;
 import com.devarchi33.persistance.mongo.repository.BookmarkRepository;

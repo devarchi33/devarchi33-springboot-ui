@@ -1,12 +1,16 @@
 package com.devarchi33;
 
 import com.devarchi33.config.Properties;
+import com.devarchi33.domain.constant.baseball.Position;
+import com.devarchi33.domain.constant.baseball.Team;
 import com.devarchi33.domain.elastic.Post;
 import com.devarchi33.domain.elastic.Tag;
 import com.devarchi33.domain.jpa.Customer;
 import com.devarchi33.domain.jpa.User;
-import com.devarchi33.service.elastic.PostService;
-import com.devarchi33.service.jpa.CustomerService;
+import com.devarchi33.domain.mongo.Batter;
+import com.devarchi33.service.baseball.BaseballService;
+import com.devarchi33.service.blog.PostService;
+import com.devarchi33.service.shop.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +28,6 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by donghoon on 2016. 6. 9..
@@ -43,6 +45,8 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
     private NamedParameterJdbcTemplate jdbcTemplate;
     @Autowired
     private PostService postService;
+    @Autowired
+    private BaseballService baseballService;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -62,26 +66,47 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
 
     @Override
     public void run(String... strings) throws Exception {
-        Map<String, Map<String, String>> servers = props.getServers();
-        Map<String, String> mongoInfo = servers.get("mongo");
-        Map<String, String> elasticInfo = servers.get("elasticsearch");
-        String mongoHost = mongoInfo.get("host");
-        int mongoPort = Integer.parseInt(mongoInfo.get("port"));
-        String elasticHost = elasticInfo.get("host");
-        int elasticPort = Integer.parseInt(elasticInfo.get("port"));
-        String database = mongoInfo.get("database");
-
-        logger.info("Mongo Host: {}", mongoHost);
-        logger.info("Mongo Port: {}", mongoPort);
-        logger.info("Mongo Database: {}", database);
-        logger.info("Elastic Host: {}", elasticHost);
-        logger.info("Elastic Port: {}", elasticPort);
+//        Map<String, Map<String, String>> servers = props.getServers();
+//        Map<String, String> mongoInfo = servers.get("mongo");
+//        Map<String, String> elasticInfo = servers.get("elasticsearch");
+//        String mongoHost = mongoInfo.get("host");
+//        int mongoPort = Integer.parseInt(mongoInfo.get("port"));
+//        String elasticHost = elasticInfo.get("host");
+//        int elasticPort = Integer.parseInt(elasticInfo.get("port"));
+//        String database = mongoInfo.get("database");
+//
+//        logger.info("Mongo Host: {}", mongoHost);
+//        logger.info("Mongo Port: {}", mongoPort);
+//        logger.info("Mongo Database: {}", database);
+//        logger.info("Elastic Host: {}", elasticHost);
+//        logger.info("Elastic Port: {}", elasticPort);
 
 //        memorydbTest();
 //        jdbcAccessTest();
 //        jpaTest();
 
-        elasticTest();
+//        elasticTest();
+        baseballPlayerTest();
+    }
+
+    private void baseballPlayerTest() {
+        Batter player1 = new Batter();
+        player1.setName("이범호");
+        player1.setTeam(Team.KIA);
+        player1.setMainPosition(Position.THIRD);
+        player1.setPositions(Arrays.asList(Position.FIRST, Position.THIRD));
+        player1.setGameCount(59);
+        player1.setAtBat(216);
+        player1.setHit(69);
+        player1.setSecondHit(12);
+        player1.setThirdHit(0);
+        player1.setHomeRun(15);
+        player1.setAvg();
+
+        baseballService.save(player1);
+
+        Batter foundPlayer = baseballService.findByBatterName("이범호");
+        logger.info("PlayerInfo: {}", foundPlayer);
     }
 
     private void elasticTest() {

@@ -1,7 +1,7 @@
 package com.devarchi33.web.bookmark;
 
 import com.devarchi33.domain.mongo.Category;
-import com.devarchi33.service.mongo.CategoryService;
+import com.devarchi33.service.bookmark.CategoryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

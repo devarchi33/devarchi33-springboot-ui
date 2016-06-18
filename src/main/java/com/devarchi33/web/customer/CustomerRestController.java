@@ -1,7 +1,7 @@
 package com.devarchi33.web.customer;
 
 import com.devarchi33.domain.jpa.Customer;
-import com.devarchi33.service.jpa.CustomerService;
+import com.devarchi33.service.shop.CustomerService;
 import com.devarchi33.service.login.LoginUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

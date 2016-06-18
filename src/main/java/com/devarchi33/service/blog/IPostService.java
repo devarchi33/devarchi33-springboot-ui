@@ -1,4 +1,4 @@
-package com.devarchi33.service.elastic;
+package com.devarchi33.service.blog;
 
 import com.devarchi33.domain.elastic.Post;
 import org.springframework.data.domain.Page;
