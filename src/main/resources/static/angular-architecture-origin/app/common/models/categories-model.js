@@ -6,7 +6,7 @@ angular.module('devarchi33.models.categories', [])
     .service('CategoriesListModel', function ($http, $q) {
         var model = this,
             URLS = {
-                FETCH: '../../static/angular-architecture-origin/data/categories.json'
+                FETCH: '/categories'
             },
             categories,
             currentCategory;

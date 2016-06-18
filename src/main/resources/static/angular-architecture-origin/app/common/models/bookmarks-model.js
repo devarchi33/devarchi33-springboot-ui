@@ -6,7 +6,7 @@ angular.module('devarchi33.models.bookmarks', [])
     .service('BookmarksModel', function ($http, $q) {
         var model = this,
             URLS = {
-                FETCH: '../../static/angular-architecture-origin/data/bookmarks.json'
+                FETCH: '/bookmarks'
             },
             bookmarks;
 
