@@ -48,7 +48,18 @@ angular.module('devarchi33.models.bookmarks', [])
         model.createBookmark = function (bookmark) {
             if (bookmark.title !== "" && bookmark.url !== "") {
                 bookmark.id = bookmarks.length;
-                bookmarks.push(bookmark);
+
+                $http.put(URLS.FETCH, bookmark)
+                    .then(function (response) {
+                            alert('success to save ' + response);
+                            console.log(response);
+                        },
+                        function (error) {
+                            //TODO: _csrf token 처리하기.
+                            alert('fail to save bookmark to server because: ' + error.data.message);
+                            console.error(error);
+                            bookmarks.push(bookmark);
+                        });
             } else {
                 alert("please input field...");
             }
