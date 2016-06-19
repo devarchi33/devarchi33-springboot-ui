@@ -1,8 +1,9 @@
-package com.devarchi33.domain.mongo;
+package com.devarchi33.domain.mongo.sports.baseball;
 
-import com.devarchi33.domain.constant.Type;
-import com.devarchi33.domain.constant.baseball.Position;
-import com.devarchi33.domain.constant.baseball.Team;
+import com.devarchi33.domain.constant.SportTypeName;
+import com.devarchi33.domain.constant.baseball.PositionName;
+import com.devarchi33.domain.constant.baseball.TeamName;
+import com.devarchi33.domain.mongo.sports.SportType;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -14,16 +15,16 @@ import java.util.List;
  */
 @Data
 @Document(collection = "baseball.batters")
-public class Batter implements Player {
+public class Batter implements SportType {
 
-    private Type type = Type.BASEBALL;
+    private SportTypeName type = SportTypeName.BASEBALL;
 
     @Id
     private String id;
     private String name;
-    private Team team;
-    private Position mainPosition;
-    private List<Position> positions;
+    private TeamName teamName;
+    private PositionName mainPosition;
+    private List<PositionName> positions;
     private int gameCount = 0;
     private int atBat = 0;
     private int hit = 0;

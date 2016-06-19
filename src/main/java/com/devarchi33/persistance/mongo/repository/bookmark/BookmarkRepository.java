@@ -1,6 +1,6 @@
-package com.devarchi33.persistance.mongo.repository;
+package com.devarchi33.persistance.mongo.repository.bookmark;
 
-import com.devarchi33.domain.mongo.Bookmark;
+import com.devarchi33.domain.mongo.bookmark.Bookmark;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**

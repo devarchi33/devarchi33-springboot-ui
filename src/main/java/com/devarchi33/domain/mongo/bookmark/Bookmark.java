@@ -1,4 +1,4 @@
-package com.devarchi33.domain.mongo;
+package com.devarchi33.domain.mongo.bookmark;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

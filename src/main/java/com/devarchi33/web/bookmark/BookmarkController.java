@@ -1,6 +1,6 @@
 package com.devarchi33.web.bookmark;
 
-import com.devarchi33.domain.mongo.Bookmark;
+import com.devarchi33.domain.mongo.bookmark.Bookmark;
 import com.devarchi33.service.bookmark.BookmarkService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

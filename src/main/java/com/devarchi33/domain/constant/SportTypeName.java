@@ -1,8 +1,8 @@
 package com.devarchi33.domain.constant;
 
 /**
- * Created by donghoon on 2016. 6. 18..
+ * Created by donghoon on 2016. 6. 19..
  */
-public enum Type {
+public enum SportTypeName {
     BASEBALL, BASKETBALL, SOCCER
 }

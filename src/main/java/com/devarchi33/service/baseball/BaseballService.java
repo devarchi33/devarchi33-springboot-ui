@@ -1,7 +1,7 @@
 package com.devarchi33.service.baseball;
 
-import com.devarchi33.domain.mongo.Batter;
-import com.devarchi33.persistance.mongo.repository.BaseballlPlayerRepository;
+import com.devarchi33.domain.mongo.sports.baseball.Batter;
+import com.devarchi33.persistance.mongo.repository.sports.BaseballlPlayerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

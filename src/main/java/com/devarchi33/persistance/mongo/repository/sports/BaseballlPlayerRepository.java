@@ -1,6 +1,6 @@
-package com.devarchi33.persistance.mongo.repository;
+package com.devarchi33.persistance.mongo.repository.sports;
 
-import com.devarchi33.domain.mongo.Batter;
+import com.devarchi33.domain.mongo.sports.baseball.Batter;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 

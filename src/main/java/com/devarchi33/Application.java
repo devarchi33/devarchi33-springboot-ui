@@ -1,14 +1,17 @@
 package com.devarchi33;
 
 import com.devarchi33.config.Properties;
-import com.devarchi33.domain.constant.baseball.Position;
-import com.devarchi33.domain.constant.baseball.Team;
+import com.devarchi33.domain.constant.SportTypeName;
+import com.devarchi33.domain.constant.baseball.PositionName;
+import com.devarchi33.domain.constant.baseball.TeamName;
 import com.devarchi33.domain.elastic.Post;
 import com.devarchi33.domain.elastic.Tag;
 import com.devarchi33.domain.jpa.Customer;
 import com.devarchi33.domain.jpa.User;
-import com.devarchi33.domain.mongo.Batter;
+import com.devarchi33.domain.mongo.sports.Team;
+import com.devarchi33.domain.mongo.sports.baseball.Batter;
 import com.devarchi33.service.baseball.BaseballService;
+import com.devarchi33.service.baseball.TeamService;
 import com.devarchi33.service.blog.PostService;
 import com.devarchi33.service.shop.CustomerService;
 import org.slf4j.Logger;
@@ -47,6 +50,8 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
     private PostService postService;
     @Autowired
     private BaseballService baseballService;
+    @Autowired
+    private TeamService teamService;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -92,9 +97,9 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
     private void baseballPlayerTest() {
         Batter player1 = new Batter();
         player1.setName("이범호");
-        player1.setTeam(Team.KIA);
-        player1.setMainPosition(Position.THIRD);
-        player1.setPositions(Arrays.asList(Position.FIRST, Position.THIRD));
+        player1.setTeamName(TeamName.KIA);
+        player1.setMainPosition(PositionName.THIRD);
+        player1.setPositions(Arrays.asList(PositionName.FIRST, PositionName.THIRD));
         player1.setGameCount(59);
         player1.setAtBat(216);
         player1.setHit(69);
@@ -107,6 +112,22 @@ public class Application extends WebMvcConfigurerAdapter implements CommandLineR
 
         Batter foundPlayer = baseballService.findByBatterName("이범호");
         logger.info("PlayerInfo: {}", foundPlayer);
+
+        Team baseballTeam = new Team();
+        baseballTeam.setType(SportTypeName.BASEBALL);
+        baseballTeam.setName(TeamName.KIA);
+        baseballTeam.setBeforeName(TeamName.HAETAE);
+        baseballTeam.setChampionshipCount(10);
+        baseballTeam.setChampionshipYear(Arrays.asList(1983, 1986, 1987, 1988, 1989, 1991, 1993, 1996, 1997, 2009));
+        baseballTeam.setDraws(1);
+        baseballTeam.setLoses(36);
+        baseballTeam.setWins(25);
+        baseballTeam.setSince(1982);
+
+        teamService.save(baseballTeam);
+
+        Team kia = teamService.findByTeamName("KIA");
+        logger.info("Team: {}", kia);
     }
 
     private void elasticTest() {

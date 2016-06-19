@@ -1,7 +1,7 @@
 package com.devarchi33.service.bookmark;
 
-import com.devarchi33.domain.mongo.Category;
-import com.devarchi33.persistance.mongo.repository.CategoryRepository;
+import com.devarchi33.domain.mongo.bookmark.Category;
+import com.devarchi33.persistance.mongo.repository.bookmark.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
